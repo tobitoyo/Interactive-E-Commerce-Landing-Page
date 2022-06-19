@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title> Sneaker Product Page</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./font awesome/css/all.css">
 </head>
 <body>
 
     <!-- header -->
     <header>
         <div class="heading" id="left-head">
-            <img src="./images/icon-menu.svg" alt="" class="responsive-img" id="menu">
+            <img src="./images/icon-menu.svg" alt="" class="responsive-img" id="menu" onclick="openNavColumn()">
             
             <img src="./images/logo.svg" alt="" class="responsive-img">
 
             <nav >
                 <ul class="heading">
-                    <li><a href="#">Collections</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="grayish-blue">Collections</a></li>
+                    <li><a href="#" class="grayish-blue">Men</a></li>
+                    <li><a href="#" class="grayish-blue">Women</a></li>
+                    <li><a href="#" class="grayish-blue">About</a></li>
+                    <li><a href="#" class="grayish-blue">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -34,6 +38,168 @@
             <img src="./images/image-avatar.png" alt="" class="responsive-img">
         </div>
     </header>
+
+    <div id="nav-column">
+        <span id="close"><img src="./images/icon-close.svg" alt="" onclick="closeNavColumn()"></span>
+
+        <nav >
+            <ul class="column">
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="main">
+        <div id="left" >
+            <!-- carousel -->
+            <div class="slideshow-container fade">
+    
+                <!-- images -->
+                <div class="containers">
+                        <img src="./images/image-product-1.jpg" alt="" class="carousel-img" onclick="openLightbox()">
+                </div>
+<!-- 
+                <div class="containers">
+                    <img src="./images/image-product-2.jpg" alt="" class="carousel-img" onclick="openLightbox()">
+                </div>
+    
+                <div class="containers">
+                    <img src="./images/image-product-3.jpg" alt="" class="carousel-img" onclick="openLightbox()">
+                </div>
+    
+                <div class="containers">
+                    <img src="./images/image-product-4.jpg" alt="" class="carousel-img" onclick="openLightbox()">
+                </div>
+  -->   
+               <!-- scroll buttons -->
+    
+                <img class="back" src="./images/icon-previous.svg" onclick="move(-1)" alt="">
+                <img class="forward" src="./images/icon-next.svg" onclick="move(1)" alt="">
+    
+                
+              <!-- thumbnails -->  
+            </div>
+            <div class="thumbnails">
+                <div class="thumbnail-img">
+                    <img src="./images/image-product-1-thumbnail.jpg" alt="image-product-1" class="img-thumb" onclick="toSlide(1)">
+                </div>
+    
+                
+                <div class="thumbnail-img">
+                    <img src="./images/image-product-2-thumbnail.jpg" alt="image-product-2" class="img-thumb" onclick="toSlide(2)">
+                </div>
+    
+                
+                <div class="thumbnail-img">
+                    <img src="./images/image-product-3-thumbnail.jpg" alt="image-product-3" class="img-thumb" onclick="toSlide(3)">
+                </div>
+    
+                
+                <div class="thumbnail-img">
+                    <img src="./images/image-product-4-thumbnail.jpg" alt="image-product-4" class="img-thumb" onclick="toSlide(4)">
+                </div>
+    
+            </div>  
+              
+        </div>
+    
+        <div id="lightbox">
+            <div class="lightbox-container fade">
+                <span class="close pointer" onclick="closeLightbox()"><img src="./images/icon-close.svg" alt=""></span>
+                <!-- images -->
+                <div class="lightbox-div">
+                        <img src="./images/image-product-1.jpg" alt="" class="lightbox-img">
+                </div>
+    
+                <div class="lightbox-div">
+                    <img src="./images/image-product-2.jpg" alt="" class="lightbox-img">
+                </div>
+    
+                <div class="lightbox-div">
+                    <img src="./images/image-product-3.jpg" alt="" class="lightbox-img">
+                </div>
+    
+                <div class="lightbox-div">
+                    <img src="./images/image-product-4.jpg" alt="" class="lightbox-img">
+                </div>
+    
+               <!-- scroll buttons -->
+    
+                <img class="back" src="./images/icon-previous.svg" onclick="movelight(-1)" alt="">
+                <img class="forward" src="./images/icon-next.svg" onclick="movelight(1)" alt="">
+    
+                
+                
+            </div>
+            <div class="lightnails">
+                <div class="lightnail-img">
+                    <img src="./images/image-product-1-thumbnail.jpg" alt="image-product-1" class="img-light" onclick="toBox(0)">
+                </div>
+    
+                
+                <div class="lightnail-img">
+                    <img src="./images/image-product-2-thumbnail.jpg" alt="image-product-2" class="img-light" onclick="toBox(1)">
+                </div>
+    
+                
+                <div class="lightnail-img">
+                    <img src="./images/image-product-3-thumbnail.jpg" alt="image-product-3" class="img-light" onclick="toBox(2)">
+                </div>
+    
+                
+                <div class="lightnail-img">
+                    <img src="./images/image-product-4-thumbnail.jpg" alt="image-product-4" class="img-light" onclick="toBox(3)">
+                </div>
+    
+            </div>
+        </div> 
+        
+        <div id="right">
+            <div class="text">
+                <p class="company-name orange-clr">sneaker company</p>
+                <br>
+                <h1>Fall Limited Edition Sneakers</h1>
+                <br>
+                <p class="grayish-blue">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
+                
+                <br><br>
+    
+            <div class="price">
+    
+                <div id="current-price" ><h1 class="marg1rem">$125</h1>
+                <h3 class="orange-clr pale-orange marg1rem" >50%</h3>
+                </div>
+  
+                <h3 class="strike marg1rem ">$250</h3>
+            </div>
+    
+            <br><br>
+                <div id="add-button">
+                    <div class=" light-grayish-blue">
+                        
+                            <img src="./images/icon-minus.svg" onclick="decrement()" alt="">
+                        
+                            <h3 id="count-el">0</h3>    
+                        
+                            <img src="./images/icon-plus.svg" onclick="increment()" alt="">
+                        
+                    </div>
+    
+                    <button type="button" class=" orange-btn"> <i class="fa-solid fa-cart-shopping"></i>  Add to cart</button>
+                </div>
+            </div>
+        </div>
+    
+            
+    </div>
+        
+
+    
     
     <script src="./index.js"></script>
 </body>

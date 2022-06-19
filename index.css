@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    box-sizing: border-box;
+  
+    /* Set font size for easy rem calculations
+         * default document font size = 16px, 1rem = 16px, 100% = 16px
+         * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+        */
+    font-size: 62.5%;
+    /* scroll-behavior: smooth; */
+  }
+
+
+body {
+    font-size: 1.5rem;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 0.5rem;
+    border-bottom: 0.1rem solid hsl(220, 14%, 75%);
+    margin-bottom: 5rem;
+}
+
+.heading{
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    
+}
+
+.responsive-img {
+    max-height: 70%;
+    width: auto;
+    margin: 0 1rem;
+}
+
+
+#right-head{
+    justify-content: flex-end;
+}
+
+ul{
+    list-style: none;
+    margin-left: 2rem;
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.heading ul li{
+    margin: 0 1.5rem;
+    padding: 2rem 0;
+    
+}
+
+
+.heading ul li:hover{
+    border-bottom: 0.2rem solid hsl(26, 100%, 55%);
+}
+
+
+header nav {
+    display: none;
+}
+
+/* NAVIGATION COLUMN */
+#nav-column {
+    display: none;
+    background-color: white;
+    height: 100vh;
+    width: 66%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+#nav-column nav {
+    margin-top: 7rem;
+}
+
+#close {
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    cursor: pointer;
+}
+
+.column li {
+    color: black;
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 2rem 0; /* I'm using 0 for the horizontal because it has inherited margin-left*/
+}
+
+
+
+/* CAROUSEL */
+
+.main, #left, #right, .slideshow-container {
+    width: 100%; /*making the carousel images responsive*/
+} 
+
+.slideshow-container {
+    position: relative;
+}
+
+.containers {
+    width: 100%;
+    overflow: hidden;  
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+}
+
+/* SCROLL BUTTONS */
+
+.back, .forward {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 1rem;
+    transition: 0.4s ease;
+    border-radius: 50%; 
+    background-color: white;
+    
+}
+
+/* placing the forward button at the right */
+.forward {
+    right: 2rem;
+    
+}
+
+/* spacing the back button from the margin */
+.back {
+    left: 2rem;
+}
+
+
+/* DESCRIPTION AND PRICE */
+h1{
+    font-size: 3rem;
+}
+
+p {
+    line-height: 2.5rem;
+    /* font-size: 1.5rem; */
+}
+
+.orange-clr {
+    color:hsl(26, 100%, 55%) ;
+  }
+  
+  .pale-orange{
+    background-color: hsl(25, 100%, 94%);
+  }
+  
+  .grayish-blue {
+   color: hsl(219, 9%, 45%);
+  }
+  
+  .light-grayish-blue{
+    background-color: hsl(223, 64%, 98%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 6rem;
+    border-radius: 2rem;
+    
+  }
+  
+  .company-name{
+      text-transform: uppercase;
+      font-weight: bold;
+  }
+
+  .text{
+      padding: 2rem;
+  }
+
+  .price{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  #current-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }
+
+  .strike{
+    text-decoration: line-through;
+    color: hsl(220, 14%, 75%);
+  }
+
+  .orange-btn {
+    background-color:hsl(26, 100%, 55%) ;
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    border: none;
+    height: 6rem;
+    border-radius: 2rem;
+    margin: 1.5rem 0;
+}
+
+
+/*THUMBNAILS*/
+
+.thumbnails {
+    width: 100%;
+    display: none; /* invisible in mobile */
+    justify-content: space-between;
+}
+
+.thumbnail-img {
+    width: 20%;
+    overflow: hidden;
+}
+
+.img-thumb {
+    width: 100%;
+    height: auto;
+}
+
+/*LIGHTBOX*/
+
+#lightbox {
+    display: none; /* invisible in mobile */
+}
+
+
+/*mobile screen 425px / 16px = 26.56em*/
+@media (max-width: 26.56em){
+    
+}
+
+/*tablet screen 768px / 16px = 48em*/
+@media screen and (min-width: 48em) {
+     header nav {
+        display: block;
+     }
+    
+    #menu,.back, .forward {
+        display: none;
+    }
+
+    .thumbnails {
+        display: flex;
+    }
+    
+}
