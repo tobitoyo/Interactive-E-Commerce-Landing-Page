@@ -40,7 +40,8 @@
     </header>
 
     <div id="nav-column">
-        <span id="close"><img src="./images/icon-close.svg" alt="" onclick="closeNavColumn()"></span>
+        <div id="left-column">
+            <span id="close"><img src="./images/icon-close.svg" alt="" onclick="closeNavColumn()"></span>
 
         <nav >
             <ul class="column">
@@ -51,6 +52,10 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
+        </div>
+        
+
+        <div id="right-column"></div>
 
     </div>
 
@@ -63,7 +68,7 @@
                 <div class="containers">
                         <img src="./images/image-product-1.jpg" alt="" class="carousel-img" onclick="openLightbox()">
                 </div>
-<!-- 
+
                 <div class="containers">
                     <img src="./images/image-product-2.jpg" alt="" class="carousel-img" onclick="openLightbox()">
                 </div>
@@ -75,7 +80,7 @@
                 <div class="containers">
                     <img src="./images/image-product-4.jpg" alt="" class="carousel-img" onclick="openLightbox()">
                 </div>
-  -->   
+     
                <!-- scroll buttons -->
     
                 <img class="back" src="./images/icon-previous.svg" onclick="move(-1)" alt="">
@@ -180,7 +185,7 @@
     
             <br><br>
                 <div id="add-button">
-                    <div class=" light-grayish-blue">
+                    <div class="light-grayish-blue">
                         
                             <img src="./images/icon-minus.svg" onclick="decrement()" alt="">
                         

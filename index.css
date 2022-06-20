@@ -26,6 +26,12 @@ header{
     padding: 0rem 0.5rem;
     border-bottom: 0.1rem solid hsl(220, 14%, 75%);
     margin-bottom: 5rem;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .heading{
@@ -66,6 +72,7 @@ ul li a{
 
 .heading ul li:hover{
     border-bottom: 0.2rem solid hsl(26, 100%, 55%);
+    font-weight: 600;
 }
 
 
@@ -76,13 +83,23 @@ header nav {
 /* NAVIGATION COLUMN */
 #nav-column {
     display: none;
-    background-color: white;
     height: 100vh;
-    width: 66%;
+    width: 100%;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
+}
+#left-column {
+    width: 66%;
+    background-color: white;
+}
+
+#right-column {
+    background-color: black;
+    width: 34%;
+    height: 100vh;
+    opacity: 0.75;
 }
 
 #nav-column nav {
@@ -104,6 +121,16 @@ header nav {
 }
 
 
+/* MAIN */
+.main {
+    margin-top: 6rem;
+    /* height: calc(100vh - 6rem); */
+    /* border: 1px solid blue; */
+
+}
+
+
+
 
 /* CAROUSEL */
 
@@ -117,7 +144,9 @@ header nav {
 
 .containers {
     width: 100%;
-    overflow: hidden;  
+    overflow: hidden; 
+    display: none;
+    cursor: pointer; 
 }
 
 .carousel-img {
@@ -182,6 +211,10 @@ p {
     border-radius: 2rem;
     
   }
+
+  .light-grayish-blue img {
+    cursor: pointer;
+  }
   
   .company-name{
       text-transform: uppercase;
@@ -219,6 +252,7 @@ p {
     height: 6rem;
     border-radius: 2rem;
     margin: 1.5rem 0;
+    cursor: pointer;
 }
 
 
@@ -228,28 +262,95 @@ p {
     width: 100%;
     display: none; /* invisible in mobile */
     justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
 }
 
 .thumbnail-img {
     width: 20%;
     overflow: hidden;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: white;
 }
 
 .img-thumb {
     width: 100%;
     height: auto;
+    display: block; /*this removes the space that appears between the div and img...remove this statement and see what happens*/
+}
+
+.thumbnail-img:hover {
+    opacity: 0.5;
 }
 
 /*LIGHTBOX*/
 
 #lightbox {
-    display: none; /* invisible in mobile */
+    display: none; /* invisible on mobile */
+    position: fixed;
+    z-index: 1;
+    /* padding: 1rem 6.2rem 0 6.2rem; */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+    margin: auto;
+}
+
+.lightbox-container {
+    width: 35%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: 0 0 0 0;
+    max-width: 1200px;
+   
+}
+
+.lightbox-div {
+    width: 100%;
+    display: none; /*images are invisible by default*/
+}
+
+.lightbox-img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.lightnails {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.lightnail-img {
+    width: 20%;
+    /* overflow: hidden; */
+    border-radius: .9rem;
+    
+}
+
+.img-light {
+    width: 100%;
+    height: 100%; /* had to do this because of the space between the div and the image*/
+    border-radius: .5rem;
 }
 
 
+
+
 /*mobile screen 425px / 16px = 26.56em*/
-@media (max-width: 26.56em){
-    
+@media (min-width: 26.56em){
+    .main {
+        width: 70%;
+        margin: 6rem auto;
+    }
 }
 
 /*tablet screen 768px / 16px = 48em*/
@@ -262,8 +363,74 @@ p {
         display: none;
     }
 
+    .carousel-img {
+        border-radius: 2rem;
+    }
+
     .thumbnails {
         display: flex;
     }
+
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: calc(100vh - 6rem);
+        
+    }
+
+    #left {
+        width: 35%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
+        /* border: 1px solid red; */
+    }
+
+    #right {
+        width: 50%;
+    }
+
+    .price {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     
+    .marg1rem {
+        margin: 0.5rem 2rem 0.5rem 0;
+    }
+
+    #current-price {
+        justify-content: start;
+    }
+
+    #add-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .orange-btn {
+        width: 50%;
+    }
+
+    .light-grayish-blue {
+        width: 40%;
+    }
 }
+
+/* desktop screen 1024px / 16px = 64em */
+
+@media (min-width: 64em){
+    #left, #right {
+        width: 33%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
+        /* border: 1px solid red; */
+    }
+ }
+
+ /* desktop screen 1440px / 16px = 90em */
+
+ @media (min-width: 90em){
+    #left, #right {
+        width: 30%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
+        /* border: 1px solid red; */
+    }
+ }
