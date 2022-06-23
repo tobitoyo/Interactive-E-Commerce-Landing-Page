@@ -37,14 +37,17 @@ header{
 .heading{
     height: 6rem;
     display: flex;
-    align-items: center;
-    
+    align-items: center;    
 }
 
 .responsive-img {
     max-height: 70%;
     width: auto;
     margin: 0 1rem;
+}
+
+#menu {
+    cursor: pointer;
 }
 
 
@@ -65,8 +68,7 @@ ul li a{
 
 .heading ul li{
     margin: 0 1.5rem;
-    padding: 2rem 0;
-    
+    padding: 2rem 0;   
 }
 
 
@@ -78,6 +80,92 @@ ul li a{
 
 header nav {
     display: none;
+}
+
+#cart-icon {
+    position: relative;
+}
+
+#cart-img {
+    cursor: pointer;
+}
+
+#cart-num {
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    font-size: 1.1rem;
+    padding: 0 .5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -1rem;
+    right: 0.5rem;
+}
+
+#avatar:hover {
+    border: 0.2rem solid hsl(26, 100%, 55%);
+    border-radius: 50%;
+}
+
+#cart {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    border-radius: 1rem;
+    top: 7rem;
+    padding: 2rem;
+    margin: 0 1rem;
+    overflow: hidden;
+    
+    /* border: 1px solid; */
+}
+
+#cart hr {
+    margin: 2rem 0;
+}
+
+#cart .orange-btn {
+    width: 100%;
+}
+
+#product {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: 1.5fr 6fr .5fr;
+    align-items: center;
+    justify-items: center;
+    grid-column-gap: 2rem;
+    color: hsl(219, 9%, 45%);
+}
+
+#prod-img-div {
+    width: 100%;
+    overflow: hidden;
+}
+
+#prod-img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+#result {
+    font-weight: 600;
+    color: black;
+}
+
+#delete {
+    cursor: pointer;
+}
+
+#empty-div {
+    display: none;
+    text-align: center;
+    font-weight: 600;
+    color: hsl(219, 9%, 45%);
+    padding: 5rem;
 }
 
 /* NAVIGATION COLUMN */
@@ -247,12 +335,17 @@ p {
     background-color:hsl(26, 100%, 55%) ;
     color: white;
     font-size: 1.5rem;
+    font-weight: 600;
     width: 100%;
     border: none;
     height: 6rem;
     border-radius: 2rem;
     margin: 1.5rem 0;
     cursor: pointer;
+}
+
+.orange-btn:hover {
+    opacity: 0.75;
 }
 
 
@@ -281,7 +374,7 @@ p {
 }
 
 .thumbnail-img:hover {
-    opacity: 0.5;
+    opacity: 0.75;
 }
 
 /*LIGHTBOX*/
@@ -294,52 +387,65 @@ p {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.75); 
     margin: auto;
+    flex-direction: column;
+    
 }
 
 .lightbox-container {
-    width: 35%;
+    width: 30%;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    padding: 0 0 0 0;
-    max-width: 1200px;
+    margin: auto auto 0;
+    /* border: 1px solid white; */
    
+}
+
+.light-close {
+    position: absolute;
+    right: 0; 
+}
+
+#close-img {
+    height: 2rem;
+    
 }
 
 .lightbox-div {
     width: 100%;
     display: none; /*images are invisible by default*/
+    margin-top: 2rem;
 }
 
 .lightbox-img{
     width: 100%;
-    border-radius: 1rem;
+    border-radius: 2rem;
 }
 
 .lightnails {
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
-    margin: auto;
+    margin: 0 auto auto;
 }
 
 .lightnail-img {
     width: 20%;
+    height: fit-content;
+    margin-top: 2rem;
     /* overflow: hidden; */
-    border-radius: .9rem;
+    /* border-radius: 1rem; */
     
 }
 
 .img-light {
     width: 100%;
-    height: 100%; /* had to do this because of the space between the div and the image*/
-    border-radius: .5rem;
+    height: auto; 
+    display: block; 
+    /* had to do this because of the space between the div and the image */ 
+    /* border-radius: .5rem; */
 }
 
 
@@ -351,6 +457,13 @@ p {
         width: 70%;
         margin: 6rem auto;
     }
+
+    #cart {
+        top: 6rem;
+        width: 30.56rem;
+        right: 0;
+        box-shadow: 0 1rem 2rem hsl(220, 14%, 75%);
+    }
 }
 
 /*tablet screen 768px / 16px = 48em*/
@@ -359,8 +472,24 @@ p {
         display: block;
      }
     
-    #menu,.back, .forward {
+    #menu,.slideshow-container>.back, .slideshow-container>.forward {
         display: none;
+    }
+
+    .lightbox-container .back {
+        left: -1.5rem;
+    }
+
+    .lightbox-container .forward {
+        right: -1.5rem;
+    }
+
+    .lightbox-container {
+        width: 50%;
+    }
+
+    .lightnails {
+        width: 45%;
     }
 
     .carousel-img {
@@ -424,7 +553,16 @@ p {
         width: 33%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
         /* border: 1px solid red; */
     }
- }
+
+    .lightbox-container {
+        width: 37%;
+    }
+
+    .lightnails {
+        width: 30%;
+    }
+}
+ 
 
  /* desktop screen 1440px / 16px = 90em */
 
@@ -432,5 +570,13 @@ p {
     #left, #right {
         width: 30%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
         /* border: 1px solid red; */
+    }
+
+    .lightbox-container {
+        width: 30%;
+    }
+
+    .lightnails {
+        width: 25%;
     }
  }
