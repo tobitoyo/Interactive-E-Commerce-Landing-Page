@@ -1,12 +1,14 @@
 
-let column = document.getElementById("nav-column");
+
 
 function openNavColumn() {
-    column.style.display = "flex"
+  let column = document.getElementById("nav-column");
+  column.style.display = "flex"
 }
 
 function closeNavColumn() {
-    column.style.display = "none"
+  let column = document.getElementById("nav-column");
+  column.style.display = "none"
 }
 
 // LANDING PAGE CAROUSEL
@@ -37,18 +39,17 @@ function slideShow(n){
     // thumbnailBorder[carouselPosition - 1].style.background = "white"
 }
 
+function toSlide(n) {
+  slideShow(carouselPosition = n);
+}
 
 // ADDING ITEMS FOR PURCHASE
 
-function toSlide(n) {
-    slideShow(carouselPosition = n);
-  }
-
-  let count = 0;
-
   function increment(){
     //   console.log("incremented");
-      count += 1;
+    let count = Number(document.getElementById("count-el").innerText);
+    // console.log(typeof count);
+    count += 1;
   
     //   console.log(count);
       document.getElementById("count-el").innerText = count;
@@ -58,7 +59,8 @@ function toSlide(n) {
   
   function decrement(){
     //   console.log("decremented");
-      count -= 1;
+    let count = document.getElementById("count-el").innerText;
+    count -= 1;
       
     //   console.log(count);
       if (count < 0){
@@ -73,7 +75,11 @@ function toSlide(n) {
 //   LIGHTBOX
 
 function openLightbox() {
-    document.getElementById('lightbox').style.display = 'flex';
+  //I apply media query so lightbox does not open in some devices 
+  if (window.matchMedia("(min-width: 48em)").matches) {
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    
   }
   
   function closeLightbox() {
@@ -100,12 +106,14 @@ function movelight(n) {
 
     if (m >= box.length) {boxPosition = 0};
     if (m < 0) {boxPosition = box.length -1};
+
     for (let j = 0; j < box.length; j++) {
         box[j].style.display = "none";
         thumbnailBorder[j].style.border = "none";
-        thumbnail[j].style.opacity = "1";
-    
+        thumbnailBorder[j].style.background = "none";
+        thumbnail[j].style.opacity = "1"; 
     }
+
     box[boxPosition].style.display = "block";
     thumbnailBorder[boxPosition].style.border = "0.4rem solid hsl(26, 100%, 70%)";
     thumbnail[boxPosition].style.opacity = "0.7";
@@ -120,37 +128,62 @@ function movelight(n) {
   // CART
 
   function openCart() {
-    
-    // this did not work
-    // cartDisplay = "block"; 
-    if (document.getElementById("count-el").innerText == 0) {
-     return empty();
-    }
-    else{
-      return document.getElementById("cart").style.display = "block";
-    }
-     
+
+    // cartDisplay = "block"; this did not work
+      document.getElementById("cart").style.display = "block";
+      if (document.getElementById("count-el").innerText == 0) {
+        return empty();
+       }
+       else {
+        return fullCart();
+       }          
   }
 
-  function closeCart() {
+  function cart() {
+    // close an open cart here!
+    if (document.getElementById("cart").style.display != "none") {
+      return (document.getElementById("cart").style.display = "none");
+   }
+
+   // open cart for first time
+   else {
+    openCart();
+   }
+  }
+
+  function checkout() {
     if (document.getElementById("cart").style.display != "none") {
       document.getElementById("cart").style.display = "none"
+      document.getElementById("cart-num").innerText = "";
+      document.getElementById("count-el").innerText = "0";
     }
+
   }
 
   function addToCart() {
      let count = document.getElementById("count-el").innerText;
-     console.log(count);
+     let open = document.getElementById("empty-div").style.display;
+    //  console.log(count);
      document.getElementById("num").innerText = count
     let answer = 125.00 * count;
-    console.log(answer);
+    // console.log(answer);
      document.getElementById("result").innerText = "$" + answer +".00";
      document.getElementById("cart-num").innerText = count;
      if (count == 0) {
         document.getElementById("cart-num").innerText = "";
      }
-    //  document.getElementById("cart").style.display = "block";
+
+    //  console.log(open);
+
+    //  THIS WILL CHANGE THE CONTENT OF AN OPEN CART
+    //  if (open == "block") {
+    //   openCart();
+    //  }
+
+     //THIS OPENS CART ASS SOON AS YOU ADD TO CART
     openCart();
+
+    //  document.getElementById("cart").style.display = "block";
   }
 
   function empty() {
@@ -158,10 +191,16 @@ function movelight(n) {
     document.getElementById("checkout").style.display = "none";
     document.getElementById("product").style.display = "none";
     document.getElementById("cart-num").innerText = "";
-
+    document.getElementById("count-el").innerText = "0";
   }
 
-  let cartDisplay = document.getElementById("cart").style.display;
+  function fullCart() {
+    document.getElementById("empty-div").style.display = "none";
+    document.getElementById("checkout").style.display = "block";
+    document.getElementById("product").style.display = "grid";
+  }
+
+
 
   
 

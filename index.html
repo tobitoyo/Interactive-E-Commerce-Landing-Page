@@ -35,7 +35,7 @@
 
         <div class="heading" id="right-head">
             <div id="cart-icon">
-                <img src="./images/icon-cart.svg" alt="" class="responsive-img" id="cart-img" onclick="openCart()">
+                <img src="./images/icon-cart.svg" alt="" class="responsive-img" id="cart-img" onclick="cart()">
                 <span id="cart-num"></span>
             </div>
             <img src="./images/image-avatar.png" alt="" class="responsive-img" id="avatar">
@@ -43,8 +43,10 @@
     </header>
 
     <div id="cart">
-        <h4>Cart</h4>
-        <hr>
+        <div id="cart-text">
+            <h4>Cart</h4>
+        </div>
+        
         <div id="product">
             <div id="prod-img-div">
                 <img src="./images/image-product-1-thumbnail.jpg" alt="" id="prod-img">
@@ -58,7 +60,7 @@
         <div id="empty-div">
             <p>Your cart is empty.</p>
         </div>
-        <button class="orange-btn" id="checkout" onclick="closeCart()">Checkout</button>
+        <button class="orange-btn" id="checkout" onclick="checkout()">Checkout</button>
     </div>
 
     <div id="nav-column">
