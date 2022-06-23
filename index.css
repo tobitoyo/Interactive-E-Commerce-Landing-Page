@@ -90,6 +90,7 @@ header nav {
     cursor: pointer;
 }
 
+
 #cart-num {
     background-color: hsl(26, 100%, 55%);
     color: white;
@@ -120,8 +121,10 @@ header nav {
     /* border: 1px solid; */
 }
 
-#cart hr {
-    margin: 2rem 0;
+#cart-text {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.1rem solid hsl(220, 14%, 75%);
 }
 
 #cart .orange-btn {
@@ -406,20 +409,20 @@ p {
 .light-close {
     position: absolute;
     right: 0; 
+    cursor: pointer;
 }
 
 #close-img {
-    height: 2rem;
-    
+    height: 2rem;   
 }
 
 .lightbox-div {
     width: 100%;
     display: none; /*images are invisible by default*/
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 
-.lightbox-img{
+.lightbox-img {
     width: 100%;
     border-radius: 2rem;
 }
@@ -436,8 +439,11 @@ p {
     height: fit-content;
     margin-top: 2rem;
     /* overflow: hidden; */
-    /* border-radius: 1rem; */
-    
+    border-radius: 1.5rem; /*making this more than the radius for the image so that the background does not show*/  
+}
+
+.lightnail-img:hover {
+    opacity: 0.75;
 }
 
 .img-light {
@@ -445,7 +451,7 @@ p {
     height: auto; 
     display: block; 
     /* had to do this because of the space between the div and the image */ 
-    /* border-radius: .5rem; */
+    border-radius: 1rem;
 }
 
 
@@ -548,7 +554,7 @@ p {
 
 /* desktop screen 1024px / 16px = 64em */
 
-@media (min-width: 64em){
+@media (min-width: 64em) {
     #left, #right {
         width: 33%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
         /* border: 1px solid red; */
@@ -566,7 +572,7 @@ p {
 
  /* desktop screen 1440px / 16px = 90em */
 
- @media (min-width: 90em){
+ @media (min-width: 90em) {
     #left, #right {
         width: 30%; /*this is my saving grace. it was the solution to the image being bigger than it's container*/
         /* border: 1px solid red; */
