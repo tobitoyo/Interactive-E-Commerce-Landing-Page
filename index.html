@@ -34,10 +34,32 @@
         
 
         <div class="heading" id="right-head">
-            <img src="./images/icon-cart.svg" alt="" class="responsive-img">
-            <img src="./images/image-avatar.png" alt="" class="responsive-img">
+            <div id="cart-icon">
+                <img src="./images/icon-cart.svg" alt="" class="responsive-img" id="cart-img" onclick="openCart()">
+                <span id="cart-num"></span>
+            </div>
+            <img src="./images/image-avatar.png" alt="" class="responsive-img" id="avatar">
         </div>
     </header>
+
+    <div id="cart">
+        <h4>Cart</h4>
+        <hr>
+        <div id="product">
+            <div id="prod-img-div">
+                <img src="./images/image-product-1-thumbnail.jpg" alt="" id="prod-img">
+            </div>
+            <div id="prod-text">
+                <p>Fall Limited Edition Sneakers</p>
+                <p>$125.00 x <span id="num"> 0 </span> <span id="result">$0.00</span></p>
+            </div>
+            <img src="./images/icon-delete.svg" alt="" onclick="empty()" id="delete">
+        </div>
+        <div id="empty-div">
+            <p>Your cart is empty.</p>
+        </div>
+        <button class="orange-btn" id="checkout" onclick="closeCart()">Checkout</button>
+    </div>
 
     <div id="nav-column">
         <div id="left-column">
@@ -115,7 +137,7 @@
     
         <div id="lightbox">
             <div class="lightbox-container fade">
-                <span class="close pointer" onclick="closeLightbox()"><img src="./images/icon-close.svg" alt=""></span>
+                <span class="light-close" onclick="closeLightbox()"><img src="./images/icon-close.svg" alt="" id="close-img"></span>
                 <!-- images -->
                 <div class="lightbox-div">
                         <img src="./images/image-product-1.jpg" alt="" class="lightbox-img">
@@ -195,7 +217,7 @@
                         
                     </div>
     
-                    <button type="button" class=" orange-btn"> <i class="fa-solid fa-cart-shopping"></i>  Add to cart</button>
+                    <button type="button" class=" orange-btn" onclick="addToCart()"> <i class="fa-solid fa-cart-shopping"></i>  Add to cart</button>
                 </div>
             </div>
         </div>
