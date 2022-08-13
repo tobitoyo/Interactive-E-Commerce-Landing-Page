@@ -158,7 +158,7 @@ function movelight(n) {
       document.getElementById("count-el").innerText = "0";
     }
 
-    location.href = "./payment.html";
+    location.href = "../payment.html";
     
 
   }
